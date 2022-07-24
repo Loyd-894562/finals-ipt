@@ -18,11 +18,29 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                @can('post-list')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('post.index')" :active="request()->routeIs('post.index','post.create','post.edit','post.show')">
                         {{ __('Post') }}
                     </x-nav-link>
                 </div>
+                @endcan
+
+                @can('role-list')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('roles.index')" :active="request()->routeIs('roles.index','roles.create','roles.edit','roles.show')">
+                        {{ __('Role') }}
+                    </x-nav-link>
+                </div>
+                @endcan
+
+                @can('user-list')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index','users.create','users.edit','users.show')">
+                        {{ __('Users') }}
+                    </x-nav-link>
+                </div>
+                @endcan
             </div>
 
             <!-- Settings Dropdown -->

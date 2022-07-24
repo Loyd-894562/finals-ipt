@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    function __construct()
+    {
+         $this->middleware('permission:post-list|post-create|post-edit|post-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:post-create', ['only' => ['create','store']]);
+         $this->middleware('permission:post-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:post-delete', ['only' => ['destroy']]);
+    }
     public function index()
     {
         $posts = Post::orderBy('id','desc')->get();
