@@ -122,13 +122,13 @@ class UserController extends Controller
                 'roles' => 'required'
             ]);
 
-            $input = $request->all();
+            $input = $request->validated();
             if(!empty($input['password'])){ 
                 $input['password'] = Hash::make($input['password']);
             }else{
                 $input = Arr::except($input,array('password'));    
             }
-           
+            $user->update($input);
             DB::table('model_has_roles')->where('model_id',$id)->delete();
 
             $user->assignRole($request->input('roles'));
