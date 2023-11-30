@@ -57,3 +57,18 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+
+<style>
+       body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('https://media.salecore.com/salesaspects/shared/GlobalImageLibrary/Responsive/ElegantSeller/real-estate-home-exterior-40-1760-1000.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Nunito', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+</style>
